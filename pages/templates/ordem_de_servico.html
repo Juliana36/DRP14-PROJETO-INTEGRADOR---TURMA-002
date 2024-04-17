@@ -139,6 +139,11 @@
             <textarea id="descricao_pedido" name="descricao_pedido"></textarea>
             <br>
             <button type="submit">Registrar OS</button>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Salvar</button>
+            </form>
         </form>
     </div>
 </body>
