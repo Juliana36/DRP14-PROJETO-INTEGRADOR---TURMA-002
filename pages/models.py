@@ -13,10 +13,6 @@ class Servico:
         self.CustoUnit = None
         self.ValorCAOA = None
     
-    '''TMO = models.CharField(max_length=50, choices=TMO_CHOICES)
-    DescServ = models.CharField(max_length=255)
-    CustoUnit = models.FloatField()
-    ValorCAOA = models.FloatField()'''
     
     def buscar_dados(self):
         for codigo_tabela, descricao, custo, valor in TMO_CHOICES:
@@ -91,57 +87,20 @@ class Loja:
     def __str__(self):
         return self.NomeLoja
 
-class OrdemServico:
-    
-    def __init__(self, numos,data):
-        self.NumOs = numos
-        self.Data = data
-        self.Dealer = None
-        self.Quinzena = None
-        self.TMOS= []
 
-    '''NumOS = models.IntegerField(primary_key=True, unique=True)#numero da OS
-    DataServ = models.DateField()#Data do serviço
-    Quinzena = models.IntegerField(choices=((1, '1ª Quinzena'), (2, '2ª Quinzena')))#Quinzena
-    Dealer = models.CharField()
-    tmo = models.CharField(max_length=50, choices=TMO_CHOICES)#Lista de TMOS'''
-    
-    def adicionarServ(self,servico):
-        self.TMOS.append(servico)
+class OrdemDeServico(models.Model):
+    numero_os = models.CharField(max_length=50)
+    data_servico = models.DateField()
+    descricao_pedido = models.TextField()
+    tmos_selecionados = models.JSONField()
 
-    def setNumOS(self, num):#Define o numero da OS
-        self.NumOS = num
-    
-    def getNumOS(self):#Retorna o numero da OS
-        return self.NumOS
-    
-    def setDataServ(self, data):#Define a data da OS
-        self.DataServ = data
-    
-    def getDataServ(self):#Retorna a data da OS
-        return self.DataServ
+    def adicionar_tmo(self, tmo):
+        # Aqui você pode chamar a função da classe Servico para buscar os dados do TMO e adicionar à ordem de serviço
+        servico = Servico.buscar_dados(tmo)
+        # Lógica para adicionar o TMO à ordem de serviço
+        self.tmos.add(servico)
 
-    def setQuinzenaMes(self):#Define se esta na primeira quinzena ou na segunda quinzena do mes em base no dia que a os for registrada
-        data_atual = date.today()
-        if data_atual.day <= 15:
-            self.Quinzena = 1
-        else:
-            self.Quinzena = 2
 
-    def getQuinzenaMes(self):#Retorna a quinzena
-        return self.quinzena
-
-    def setDealer(self, Dealer):
-        self.Dealer = Dealer
-    
-    def getDealer(self):
-        return self.Dealer
     
     def __str__(self):
-        return f"OS-{self.NumOs} ({self.TMOS})"
-    
-    
-
-    
-  
-   
+        return f"OS-{self.numero_os} ({self.TMOS})"

@@ -6,87 +6,86 @@
     <title>AutoCareSystem - Ordem de Serviço</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 100;
-            padding: 100;
-            
-        }
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Adicionado para usar o Flexbox */
+}
 
-        .menu {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            width: 200px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-        }
+.menu {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    height: 100vh; /* Altura da tela inteira */
+    position: fixed;
+    left: 0;
+    top: 0;
+}
 
-        .menu a {
-            display: block;
-            padding: 5px;
-            color: white;
-            text-decoration: none;
-        }
+.menu a {
+    display: block;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
 
-        .menu a:hover {
-            background-color: #555;
-        }
+.menu a:hover {
+    background-color: #555;
+}
 
-        .content {
-            margin: 110px;
-            display:ruby;
-           
-            
-        }
+.content {
+    margin-left: 200px; /* Largura do menu */
+    padding: 100px;
+    width: calc(100% - 200px); /* Calcula o restante do espaço disponível */
+}
 
-        h1 {
-            font-size: 28px;
-        }
+h1 {
+    font-size: 28px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+label {
+    display: block;
+    margin-bottom: 5px;
+}
 
-        input[type="text"],
-        input[type="number"],
-        input[type="date"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            align-content: center;
-        }
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
-        button[type="submit"] {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
 
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
 
-        button.active {
-            box-shadow: 0 0 10px #4CAF50;
-        }
+button.active {
+    box-shadow: 0 0 10px #4CAF50;
+}
 
-        .counter {
-            display: inline-block;
-            margin-left: 0px;
-            background-color: #333;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
+.counter {
+    display: inline-block;
+    margin-left: 0px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
     </style>
 </head>
 <body>
@@ -98,7 +97,7 @@
     </div>
     <div class="content">
         <h1>AutoCareSystem - Ordem de Serviço</h1>
-        <form action="/ordem_de_servico/" method="post">
+        <form id="form_os" action="/ordem_de_servico/" method="post">
             {% csrf_token %}
             <label for="lojas">Selecione a loja:</label>
             <select id="lojas" name="lojas">
@@ -116,8 +115,6 @@
                 <option value="HMB - NACOES UNIDAS MATRIZ">HMB - NACOES UNIDAS MATRIZ</option>
                 <option value="HMB CONSOLAÇÃO">HMB CONSOLAÇÃO</option>
                 <option value="HYUNDAI - IMARES">HYUNDAI - IMARES</option>
-
-            </select>
             <br>
             <label for="numero_os">Número da OS:</label>
             <input type="text" id="numero_os" name="numero_os">
@@ -125,12 +122,21 @@
             <label for="tmo_servico">Serviço:</label>
             <button type="submit" name="tmo_servico" value="STLAVSIM">Lavagem Simples</button>
             <button type="submit" name="tmo_servico" value="STPREPS">Preparação de Seminovos</button>
-            <button type="submit" name="tmo_servico" value="STLAVCRISTAL">Lavagem com Cera + Motor + Cristalização para Brisas</button>
-            <button type="submit" name="tmo_servico" value="STKITPLUS">Kit Plus - Kit 3x1</button>
+            <button type="submit" name="tmo_servico" value="STLAVCRISTAL">Lavagem com Cera + Cristalização para Brisas</button>
+            <button type="submit" name="tmo_servico" value="STKITPLUS">Kit Plus - Kit3x1 + Cristalização de Vidros</button>
             <button type="submit" name="tmo_servico" value="STLAVMOT">Lavagem com Motor</button>
             <button type="submit" name="tmo_servico" value="STPREPN">Preparação de Novos</button>
             <button type="submit" name="tmo_servico" value="STHIGIE">Higienização de Bancos e Teto</button>
-            <button type="submit" name="tmo_servico" value="STCERAMIC9H">Vitirificação de Pintura</button>
+            <button type="submit" name="tmo_servico" value="STCERAMIC9H">Vitrificação de Pintura 9H ou 10H</button>
+            <button type="submit" name="tmo_servico" value="STREMOP">Remoção de Película</button>
+            <button type="submit" name="tmo_servico" value="STCRIV">Serv. Terc. - Cristalização de vidros</button>
+            <button type="submit" name="tmo_servico" value="STHIDBA">Serv. Terc. - Hidratação dos bancos</button>
+            <button type="submit" name="tmo_servico" value="STKIT31">Serv. Terc. - KIT3x1</button>
+            <button type="submit" name="tmo_servico" value="STKITION">Serv. Terc. - Polimento + Selante</button>
+            <button type="submit" name="tmo_servico" value="STVITRI">Vitrificação de Pintura 5h</button>
+            <input type="hidden" id="tmos_selecionados" name="tmos_selecionados" value="">
+            
+
             <br>
             <label for="data_servico">Data do Serviço:</label>
             <input type="date" id="data_servico" name="data_servico">
@@ -139,12 +145,28 @@
             <textarea id="descricao_pedido" name="descricao_pedido"></textarea>
             <br>
             <button type="submit">Registrar OS</button>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Salvar</button>
-            </form>
         </form>
     </div>
+    <script>
+        var tmosSelecionados = [];
+        document.addEventListener("DOMContentLoaded", function() {
+            const botoesServico = document.querySelectorAll("[name='tmo_servico']");
+            botoesServico.forEach(botao => {
+                botao.addEventListener("click", function() {
+                    const tmoSelecionado = botao.value;
+                    tmosSelecionados.push(tmoSelecionado);
+                    console.log("TMOs Selecionados:", tmosSelecionados); // Para verificar no console do navegador
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+        const formOS = document.querySelector("#form_os");
+        formOS.addEventListener("submit", function(event) {
+            const tmosInput = document.getElementById("tmos_selecionados");
+            tmosInput.value = JSON.stringify(tmosSelecionados);
+        });
+    });
+    </script>
+    
 </body>
 </html>

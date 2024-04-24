@@ -55,7 +55,7 @@ ROOT_URLCONF = 'AutoCareSystem.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'D:/vscode/univesp/AutoCareSystem/pages/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'C:/vscode/Univesp/AutoCareSystem/pages/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
