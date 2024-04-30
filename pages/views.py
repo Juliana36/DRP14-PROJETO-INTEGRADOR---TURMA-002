@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from models import OrdemDeServico
+from .models import OrdemDeServico
+from django.http import HttpResponse
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
@@ -11,6 +12,9 @@ def servicos(request):
 
 
 def ordem_de_servico(request):
+    return render(request, 'ordem_de_servico.html')
+
+def processar_servico(request):
     if request.method == 'POST':
         numero_os = request.POST.get('numero_os')
         data_servico = request.POST.get('data_servico')

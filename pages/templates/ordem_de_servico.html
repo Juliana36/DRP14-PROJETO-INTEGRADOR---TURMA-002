@@ -97,7 +97,7 @@ button.active {
     </div>
     <div class="content">
         <h1>AutoCareSystem - Ordem de Serviço</h1>
-        <form id="form_os" action="/ordem_de_servico/" method="post">
+        <form id="form_os" action="{% url 'processar_servico' %}" method="post">
             {% csrf_token %}
             <label for="lojas">Selecione a loja:</label>
             <select id="lojas" name="lojas">

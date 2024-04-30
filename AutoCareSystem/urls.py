@@ -27,5 +27,6 @@ urlpatterns = [
     path('servicos/', views.servicos, name='servicos'),
     path('ordem_de_servico/', views.ordem_de_servico, name='ordem_de_servico'),
     path('servicos/ordem_de_servico/', views.ordem_de_servico, name='ordem_de_servico'),
+    path('processar_servico/', views.processar_servico, name='processar_servico'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

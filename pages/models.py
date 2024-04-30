@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date
-from choices import TMO_CHOICES , DEALER_CHOICES
+from .choices import TMO_CHOICES , DEALER_CHOICES
 
 
 
