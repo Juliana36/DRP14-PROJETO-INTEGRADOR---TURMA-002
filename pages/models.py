@@ -21,30 +21,6 @@ class Servico:
                 self.CustoUnit = custo
                 self.ValorCAOA = valor
                 break
-            
-                
-        #self.Prest = prest
-
-    def setTMO(self, tmo): #Define o TMO
-        self.TMO = tmo
-    
-    def getTMO(self):#Retorna o TMO
-        return self.TMO
-    
-    def setDescServ(self, desc):#Define a descrição
-        self.DescServ = desc
-    
-    def getDescServ(self):#retorna a descrição
-        return self.DescServ
-
-    def setCustoUnit(self, custo):#Define o Custo
-        self.CustoUnit = custo
-    
-    def attCustoUnit(self, custo):#Atualiza o Custo
-        self.CustoUnit = custo
-
-    def getCustoUnit(self):##retorna o custo
-        return self.CustoUnit
 
     def __str__(self):
         return self.DescServ
@@ -66,24 +42,6 @@ class Loja:
     
     
 
-    def setNomeLoja (self, nome):
-        self.NomeLoja = nome
-    
-    def getNomeLoja (self):
-        return self.NomeLoja
-
-    '''def setEndereço (self, endereço):
-        self.Endereço = endereço
-    
-    def getEndereço(self):
-        return self.Endereço'''
-    
-    def setDealer (self, codigo):
-        self.Dealer = codigo
-
-    def getDealer(self):
-        return self.Dealer
-
     def __str__(self):
         return self.NomeLoja
 
@@ -104,3 +62,5 @@ class OrdemDeServico(models.Model):
     
     def __str__(self):
         return f"OS-{self.numero_os} ({self.TMOS})"
+
+

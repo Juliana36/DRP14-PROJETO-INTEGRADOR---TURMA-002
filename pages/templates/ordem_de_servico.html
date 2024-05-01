@@ -61,6 +61,13 @@ textarea {
     margin-bottom: 10px;
 }
 
+button[type="submiti"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
 button[type="submit"] {
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -120,20 +127,20 @@ button.active {
             <input type="text" id="numero_os" name="numero_os">
             <br>
             <label for="tmo_servico">Serviço:</label>
-            <button type="submit" name="tmo_servico" value="STLAVSIM">Lavagem Simples</button>
-            <button type="submit" name="tmo_servico" value="STPREPS">Preparação de Seminovos</button>
-            <button type="submit" name="tmo_servico" value="STLAVCRISTAL">Lavagem com Cera + Cristalização para Brisas</button>
-            <button type="submit" name="tmo_servico" value="STKITPLUS">Kit Plus - Kit3x1 + Cristalização de Vidros</button>
-            <button type="submit" name="tmo_servico" value="STLAVMOT">Lavagem com Motor</button>
-            <button type="submit" name="tmo_servico" value="STPREPN">Preparação de Novos</button>
-            <button type="submit" name="tmo_servico" value="STHIGIE">Higienização de Bancos e Teto</button>
-            <button type="submit" name="tmo_servico" value="STCERAMIC9H">Vitrificação de Pintura 9H ou 10H</button>
-            <button type="submit" name="tmo_servico" value="STREMOP">Remoção de Película</button>
-            <button type="submit" name="tmo_servico" value="STCRIV">Serv. Terc. - Cristalização de vidros</button>
-            <button type="submit" name="tmo_servico" value="STHIDBA">Serv. Terc. - Hidratação dos bancos</button>
-            <button type="submit" name="tmo_servico" value="STKIT31">Serv. Terc. - KIT3x1</button>
-            <button type="submit" name="tmo_servico" value="STKITION">Serv. Terc. - Polimento + Selante</button>
-            <button type="submit" name="tmo_servico" value="STVITRI">Vitrificação de Pintura 5h</button>
+            <button type="submiti" name="tmo_servico" value="STLAVSIM">Lavagem Simples</button>
+            <button type="submiti" name="tmo_servico" value="STPREPS">Preparação de Seminovos</button>
+            <button type="submiti" name="tmo_servico" value="STLAVCRISTAL">Lavagem com Cera + Cristalização para Brisas</button>
+            <button type="submiti" name="tmo_servico" value="STKITPLUS">Kit Plus - Kit3x1 + Cristalização de Vidros</button>
+            <button type="submiti" name="tmo_servico" value="STLAVMOT">Lavagem com Motor</button>
+            <button type="submiti" name="tmo_servico" value="STPREPN">Preparação de Novos</button>
+            <button type="submiti" name="tmo_servico" value="STHIGIE">Higienização de Bancos e Teto</button>
+            <button type="submiti" name="tmo_servico" value="STCERAMIC9H">Vitrificação de Pintura 9H ou 10H</button>
+            <button type="submiti" name="tmo_servico" value="STREMOP">Remoção de Película</button>
+            <button type="submiti" name="tmo_servico" value="STCRIV">Serv. Terc. - Cristalização de vidros</button>
+            <button type="submiti" name="tmo_servico" value="STHIDBA">Serv. Terc. - Hidratação dos bancos</button>
+            <button type="submiti" name="tmo_servico" value="STKIT31">Serv. Terc. - KIT3x1</button>
+            <button type="submiti" name="tmo_servico" value="STKITION">Serv. Terc. - Polimento + Selante</button>
+            <button type="submiti" name="tmo_servico" value="STVITRI">Vitrificação de Pintura 5h</button>
             <input type="hidden" id="tmos_selecionados" name="tmos_selecionados" value="">
             
 
@@ -160,12 +167,19 @@ button.active {
             });
         });
         document.addEventListener("DOMContentLoaded", function() {
-        const formOS = document.querySelector("#form_os");
-        formOS.addEventListener("submit", function(event) {
+            const formOS = document.querySelector("#form_os");
+            formOS.addEventListener("submiti", function(event) {
+            event.preventDefault(); // Previne o comportamento padrão do formulário
             const tmosInput = document.getElementById("tmos_selecionados");
             tmosInput.value = JSON.stringify(tmosSelecionados);
+            console.log("Formulário pronto para ser enviado");
+
+            formOS.submit(); // Isso envia o formulário
         });
     });
+    
+    
+        
     </script>
     
 </body>
