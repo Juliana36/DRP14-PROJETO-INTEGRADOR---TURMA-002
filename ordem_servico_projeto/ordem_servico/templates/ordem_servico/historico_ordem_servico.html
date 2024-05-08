@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Ordem de Serviço</title>
+</head>
+<body>
+    <h1>Histórico de Ordem de Serviço</h1>
+    <ul>
+        {% for ordem in ordens_servico %}
+            <li>
+                Empresa: {{ ordem.empresa }}, 
+                Serviço: {{ ordem.servico }}, 
+                Data: {{ ordem.data }}
+            </li>
+        {% empty %}
+            <li>Nenhuma Ordem de Serviço encontrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

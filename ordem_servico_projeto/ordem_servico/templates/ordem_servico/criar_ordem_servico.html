@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Ordem de Serviço</title>
+</head>
+<body>
+    <h1>Criar Ordem de Serviço</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Criar Ordem de Serviço</button>
+    </form>
+</body>
+</html>
