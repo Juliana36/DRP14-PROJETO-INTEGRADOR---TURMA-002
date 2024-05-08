@@ -21,6 +21,7 @@
         <option value="{% url 'historico_ordem_servico' mes=11 %}">Novembro</option>
         <option value="{% url 'historico_ordem_servico' mes=12 %}">Dezembro</option>
     </select>
+    <a href="{% url 'baixar_excel' mes=mes %}">Baixar em formato Excel</a>
     <ul>
         {% for ordem in ordens_servico %}
             <li>

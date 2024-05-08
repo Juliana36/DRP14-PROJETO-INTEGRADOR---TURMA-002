@@ -12,6 +12,8 @@ urlpatterns = [
     path('emitir_planilha/<int:mes>/<int:ano>/', views.emitir_planilha, name='emitir_planilha'),
     path('historico_ordem_servico/', views.historico_ordem_servico, name='historico_ordem_servico'),
     path('historico_ordem_servico/<int:mes>/', views.historico_ordem_servico, name='historico_ordem_servico'),
+    path('baixar_excel/<int:mes>/', views.baixar_excel, name='baixar_excel'),
+    
     
     # Adicione outras URLs conforme necessário
 ]
