@@ -11,5 +11,7 @@ urlpatterns = [
     path('ordem_servico_confirmacao/', views.ordem_servico_confirmacao, name='ordem_servico_confirmacao'),
     path('emitir_planilha/<int:mes>/<int:ano>/', views.emitir_planilha, name='emitir_planilha'),
     path('historico_ordem_servico/', views.historico_ordem_servico, name='historico_ordem_servico'),
+    path('historico_ordem_servico/<int:mes>/', views.historico_ordem_servico, name='historico_ordem_servico'),
+    
     # Adicione outras URLs conforme necessário
 ]

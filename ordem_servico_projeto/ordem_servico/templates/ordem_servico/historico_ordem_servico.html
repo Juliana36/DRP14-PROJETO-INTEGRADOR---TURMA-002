@@ -6,12 +6,25 @@
 </head>
 <body>
     <h1>Histórico de Ordem de Serviço</h1>
+    <select onchange="window.location.href=this.value;">
+        <option value="">Selecione um mês</option>
+        <option value="{% url 'historico_ordem_servico' mes=1 %}">Janeiro</option>
+        <option value="{% url 'historico_ordem_servico' mes=2 %}">Fevereiro</option>
+        <option value="{% url 'historico_ordem_servico' mes=3 %}">Março</option>
+        <option value="{% url 'historico_ordem_servico' mes=4 %}">Abril</option>
+        <option value="{% url 'historico_ordem_servico' mes=5 %}">Maio</option>
+        <option value="{% url 'historico_ordem_servico' mes=6 %}">Junho</option>
+        <option value="{% url 'historico_ordem_servico' mes=7 %}">Julho</option>
+        <option value="{% url 'historico_ordem_servico' mes=8 %}">Agosto</option>
+        <option value="{% url 'historico_ordem_servico' mes=9 %}">Setembro</option>
+        <option value="{% url 'historico_ordem_servico' mes=10 %}">Outubro</option>
+        <option value="{% url 'historico_ordem_servico' mes=11 %}">Novembro</option>
+        <option value="{% url 'historico_ordem_servico' mes=12 %}">Dezembro</option>
+    </select>
     <ul>
         {% for ordem in ordens_servico %}
             <li>
-                Empresa: {{ ordem.empresa }}, 
-                Serviço: {{ ordem.servico }}, 
-                Data: {{ ordem.data }}
+                {{ ordem.data|date:"d/m/Y H:i" }} - Empresa: {{ ordem.empresa }}, Serviço: {{ ordem.servico }}
             </li>
         {% empty %}
             <li>Nenhuma Ordem de Serviço encontrada.</li>

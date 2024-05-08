@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import OrdemServicoForm
 from .models import EmissaoOrdemServico
-
+from django.shortcuts import render, redirect
 
 def criar_ordem_servico(request):
     if request.method == 'POST':
@@ -18,8 +18,11 @@ def criar_ordem_servico(request):
 def ordem_servico_confirmacao(request):
     return render(request, 'ordem_servico/ordem_servico_confirmacao.html')
 
-def historico_ordem_servico(request):
-    ordens_servico = EmissaoOrdemServico.objects.all()
+def historico_ordem_servico(request, mes=None):
+    if mes:
+        ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes)
+    else:
+        ordens_servico = EmissaoOrdemServico.objects.all()
     return render(request, 'ordem_servico/historico_ordem_servico.html', {'ordens_servico': ordens_servico})
 
 def emitir_planilha(request, mes, ano):
