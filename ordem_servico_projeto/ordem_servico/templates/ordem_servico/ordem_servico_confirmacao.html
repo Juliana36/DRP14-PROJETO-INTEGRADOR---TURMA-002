@@ -3,10 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Ordem de Serviço Criada</title>
+    <style>
+        /* ordem_servico/static/ordem_servico/confirmacao.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center ;
+}
+
+h1 {
+    color: #28a745;
+    align-content: center;
+}
+
+p {
+    font-size: 18px;
+    color: #333333;
+    align-content: center;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+    </style>
 </head>
 <body>
     <h1>Ordem de Serviço Criada com Sucesso!</h1>
+    <br>
     <p>A Ordem de Serviço foi criada com sucesso.</p>
+    <br>
     <a href="{% url 'historico_ordem_servico' %}" class="btn">Ver Histórico de Ordem de Serviço</a>
     <a href="{% url 'criar_ordem_servico' %}">Voltar para a página principal</a>
 </body>
