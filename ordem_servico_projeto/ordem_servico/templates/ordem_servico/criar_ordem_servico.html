@@ -41,6 +41,16 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.image-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.image-container img {
+    width: 100px;
+    height: auto;
+}
 
     </style>
 
@@ -52,5 +62,8 @@ button:hover {
         {{ form.as_p }}
         <button type="submit">Criar Ordem de Serviço</button>
     </form>
+    <div class="image-container">
+        <img src="https://static.wikia.nocookie.net/animeverso/images/0/00/ReiCasual.png/revision/latest/scale-to-width-down/500?cb=20230707231853&path-prefix=pt-br" alt="Rei Service">
+    </div>
 </body>
 </html>
